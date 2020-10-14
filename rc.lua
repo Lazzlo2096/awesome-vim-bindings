@@ -227,8 +227,16 @@ globalkeys = awful.util.table.join(
 
     -------------------------------------------------- !!!!!!!!!!!!!!!!!!!!
     -- Shortcut for returning to NORMAL MODE
-    awful.key({ modkey,           }, "Escape", function () normalMode() end),
-    awful.key({ "Control", "Mod1" }, "[", function () normalMode() end)
+    awful.key({ modkey, }, "Escape", normalMode), --function () normalMode() end
+    awful.key({ "Control", "Mod1" }, "[", normalMode), -- maybe shift ??  
+
+    
+
+    --awful.key({         }, "Super_L", function () naughty.notify({ title = "Super_L", text = "", timeout = 0 }) end),
+    --awful.key({ modkey, }, "b", function () naughty.notify({ title = "mod+g", text = "", timeout = 0 }) end)
+
+    awful.key({         }, "Super_R", --[[nil,]] normalMode), -- https://awesomewm.org/doc/api/libraries/awful.key.html#new
+    awful.key({         }, "Super_L", --[[nil,]] normalMode)  --[[ "Caps_Lock" and shift influence to i ]]  -- https://superuser.com/a/1255946
     -------------------------------------------------- !!!!!!!!!!!!!!!!!!!!
 
     --awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
@@ -236,7 +244,7 @@ globalkeys = awful.util.table.join(
     --awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
     --awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1)      end),
     --awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1)         end),
-    --awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end),
+    --awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1)         end)
 )
 
 clientkeys = awful.util.table.join(
