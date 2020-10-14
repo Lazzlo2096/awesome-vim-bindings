@@ -37,6 +37,7 @@ local function goRight()
     if client.focus then client.focus:raise() end
 end
 
+-- https://awesomewm.org/doc/api/libraries/awful.prompt.html#run
 
 local function runCommand()
     -- TODO Multiple run does not work (for example: 4r)

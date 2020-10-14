@@ -90,6 +90,7 @@ myawesomemenu = {
    { "restart", awesome.restart },
    { "quit", function() awesome.quit() end }
 }
+-- https://awesomewm.org/doc/api/sample%20files/rc.lua.html
 
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "open terminal", config.TERMINAL }
@@ -158,6 +159,13 @@ mytasklist.buttons = awful.util.table.join(
 for s = 1, screen.count() do
     -- Create a promptbox for each screen
     -- ----------------------------------------------------
+    naughty.notify({ title = "mouse.screen!", text = tostring(mouse.screen), timeout = 0 })
+    naughty.notify({ title = "awful.screen.focus()!", text = tostring(awful.screen.focused()), timeout = 0 })
+    naughty.notify({ title = "screen[s]", text = tostring(screen[s]), timeout = 0 })
+    naughty.notify({ title = "screescreen.count()", text = tostring(screen.count()), timeout = 0 })
+     --- tostring()
+     --- awful.screen.focused() == mouse.screen
+     --- screen.index(1) -- ?? https://awesomewm.org/doc/api/classes/screen.html#screen.index
     mypromptbox[screen[s]] = awful.widget.prompt()
     -- ----------------------------------------------------
 
